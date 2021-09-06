@@ -10,6 +10,10 @@ function getTime(){
                               minutes < 10 ? `0${minutes}` : minutes}:${
                               seconds < 10 ? `0${seconds}` : seconds}`;
 }
+//"1".padStart(2,"0"); 이런식으로 2글자가 아니면 앞에 0을 채우는것도 가능하다.
+//padEnd는 끝에 채운다.
+//padStart는 String에 쓸 수 있기때문에
+//String(date.getHouts()).padStart() 이런식으로 써야한다. number을 string으로 바꿔야 됨.
 
 function init(){
     getTime(); //우선 처음에 먼저 시작해줌.

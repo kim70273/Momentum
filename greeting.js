@@ -7,10 +7,17 @@ const byeBtn = document.querySelector(".byeBtn")
 const USER_LS = "currentUser",
      SHOWING_CN= "showing";
 
-console.log(byeBtn.innerText);
-function byeBtnhandle(){
+byeBtn.addEventListener('click', handleSubmit);
+
+function saveName(text){
+    localStorage.setItem(USER_LS,text);
+}
+
+function handleSubmit(event){
+    event.preventDefault();//기본동작인 event가 위로 쭉 올라가는것을 막는다
     if(byeBtn.innerText=="Login"){
         const currentValue = input.value;
+        if(currentValue === "") return;
         paintGreeting(currentValue);
         saveName(currentValue);
     }
@@ -22,19 +29,6 @@ function byeBtnhandle(){
         toDoDiv.classList.remove(SHOWING_CN);
         location.reload();//새로고침
     }
-}
-
-byeBtn.addEventListener('click', byeBtnhandle);
-
-function saveName(text){
-    localStorage.setItem(USER_LS,text);
-}
-
-function handleSubmit(event){
-    event.preventDefault();//기본동작인 event가 위로 쭉 올라가는것을 막는다
-    const currentValue = input.value;
-    paintGreeting(currentValue);
-    saveName(currentValue);
 }
 
 function askForName(){
